@@ -67,6 +67,7 @@ class IndexController extends Controller
         $data['current'] = $current;
         $data['file_count'] = $count;
         $data['file_total_page'] = ceil($count/$pagesize);
+        $data['page_url'] = '';
         //检查登录状态
         session_set_cookie_params(3600*24*7);
         session_start();

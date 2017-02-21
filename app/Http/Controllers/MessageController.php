@@ -45,6 +45,7 @@ class MessageController extends Controller
         if (!empty($_SESSION['user'])) {
             $data['user'] = $_SESSION['user'];
         }
+        $data['page_url'] = 'messages';
         return view('message', $data);
     }
 

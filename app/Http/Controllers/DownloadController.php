@@ -58,6 +58,7 @@ class DownloadController extends Controller
         } else {
             $data['object_id'] = false;
         }
+        $data['page_url'] = 'download';
         return view('download', $data);
     }
 }

@@ -21,36 +21,97 @@
     <script src="front/js/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="front/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="front/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="front/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="front/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="front/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="front/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="front/images/ico/apple-touch-icon-57-precomposed.png">
     <style>
-        .auto-height{
-            position:relative;
-            padding-top:25px;
-            padding-bottom:56.25%;
-            height:0;
+        .auto-height {
+            position: relative;
+            padding-top: 25px;
+            padding-bottom: 56.25%;
+            height: 0;
             border: 1px solid red;
         }
 
-        *{margin:0;padding:0;list-style-type:none;}
-        a,img{border:0;}
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a, img {
+            border: 0;
+        }
+
         /* side */
-        .side{position:fixed;width:54px;height:275px;right:0;top:366px;z-index:100;}
-        .side ul li{width:54px;height:54px;float:left;position:relative;border-bottom:1px solid #444;}
-        .side ul li .sidebox{position:absolute;width:54px;height:54px;top:0;right:0;transition:all 0.3s;background:#000;opacity:0.8;filter:Alpha(opacity=80);color:#fff;font:14px/54px "微软雅黑";overflow:hidden;}
-        .side ul li .sidetop{width:54px;height:54px;line-height:54px;display:inline-block;background:#000;opacity:0.8;filter:Alpha(opacity=80);transition:all 0.3s;}
-        .side ul li .sidetop:hover{background:#ae1c1c;opacity:1;filter:Alpha(opacity=100);}
-        .side ul li img{float:left;}
+        .side {
+            position: fixed;
+            width: 54px;
+            height: 275px;
+            right: 0;
+            top: 366px;
+            z-index: 100;
+        }
+
+        .side ul li {
+            width: 54px;
+            height: 54px;
+            float: left;
+            position: relative;
+            border-bottom: 1px solid #444;
+        }
+
+        .side ul li .sidebox {
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            top: 0;
+            right: 0;
+            transition: all 0.3s;
+            background: #000;
+            opacity: 0.8;
+            filter: Alpha(opacity=80);
+            color: #fff;
+            font: 14px/54px "微软雅黑";
+            overflow: hidden;
+        }
+
+        .side ul li .sidetop {
+            width: 54px;
+            height: 54px;
+            line-height: 54px;
+            display: inline-block;
+            background: #000;
+            opacity: 0.8;
+            filter: Alpha(opacity=80);
+            transition: all 0.3s;
+        }
+
+        .side ul li .sidetop:hover {
+            background: #ae1c1c;
+            opacity: 1;
+            filter: Alpha(opacity=100);
+        }
+
+        .side ul li img {
+            float: left;
+        }
+
         /* side end */
     </style>
 </head><!--/head-->
 <body>
 <div class="side">
     <ul>
-        <li alt="点击这里给我发消息" title="点击这里给我发消息"><a href="http://wpa.qq.com/msgrd?v=3&uin={{ $qq_service }}&site=qq&menu=yes" ><div class="sidebox"><img src="front/images/ico/side_icon04.png" >QQ客服</div></a></li>
-        <li style="border:none;"><a href="javascript:goTop();" class="sidetop"><img src="front/images/ico/side_icon05.png"></a></li>
+        <li alt="点击这里给我发消息" title="点击这里给我发消息"><a
+                    href="http://wpa.qq.com/msgrd?v=3&uin={{ $qq_service }}&site=qq&menu=yes">
+                <div class="sidebox"><img src="front/images/ico/side_icon04.png">QQ客服</div>
+            </a></li>
+        <li style="border:none;"><a href="javascript:goTop();" class="sidetop"><img
+                        src="front/images/ico/side_icon05.png"></a></li>
     </ul>
 </div>
 <header id="header">
@@ -85,129 +146,101 @@
 
 </header><!--/header-->
 
-    <section id="blog" class="container">
-        <div class="center">
-            <h2>{{ $msg_board }}</h2>
-            <p class="lead">{{ $site_intro }}</p>
-        </div>
+<section id="blog" class="container">
+    <div class="center">
+        <h2>{{ $msg_board }}</h2>
+        <p class="lead">{{ $site_intro }}</p>
+    </div>
 
-        <div class="blog">
-            <div class="row">
-                 <div class="col-md-8">
-                    <div class="blog-item">
+    <div class="blog">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-item">
+                    <div class="row">
                         <div class="row">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    @foreach($messages as $message)
-                                        <div class="single_comments">
-                                            @if(is_file($message->avatar))
-                                            <img style="margin-left: 20px;width: 64px;height:64px" src="{{ $message->avatar}}" alt=""  />
-                                            @else
-                                                <img style="margin-left: 20px" src="front/images/blog/avatar3.png" alt=""  />
-                                                @endif
-                                                <p>{{ $message->content }} </p>
-                                            <div class="entry-meta small ">
-                                                <span style="float: left">By <a href="#">{{ $message->name }}</a></span> <span>On <a href="#">{{ date('Y-m-d H:i:s', $message->create_at) }}</a></span>
-                                            </div>
-                                            @if(mb_strlen($message->content) < 60)
-                                                <br/>
-                                            @endif
+                            <div class="col-sm-12">
+                                @foreach($messages as $message)
+                                    <div class="single_comments">
+                                        @if(is_file($message->avatar))
+                                            <img style="margin-left: 20px;width: 64px;height:64px"
+                                                 src="{{ $message->avatar}}" alt=""/>
+                                        @else
+                                            <img style="margin-left: 20px" src="front/images/blog/avatar3.png" alt=""/>
+                                        @endif
+                                        <p>{{ $message->content }} </p>
+                                        <div class="entry-meta small ">
+                                            <span style="float: left">By <a href="#">{{ $message->name }}</a></span>
+                                            <span>On <a href="#">{{ date('Y-m-d H:i:s', $message->create_at) }}</a></span>
                                         </div>
-                                    @endforeach
-                                </div>
+                                        @if(mb_strlen($message->content) < 60)
+                                            <br/>
+                                        @endif
+                                    </div>
+                                @endforeach
                             </div>
-                        </div><!--/.messages-item-->
-                    <ul class="pagination pagination-lg">
-                        @if($current != 1)
-                        <li><a href="messages?current={{$current -1}}">上一页</a></li>
-                        @endif
-                        @if($file_total_page > 10)
-                        @if($current < 10)
-                        @for($i=1; $i <= 10; $i++)
-                            @if($i == $current)
-                        <li class="active"><a href="#">{{ $i }}</a></li>
-                                @else
-                                <li><a href="messages?current={{$i}}">{{$i}}</a></li>
-                            @endif
-
-                        @endfor
-                            @else
-                            @for($i=$current - 9; $i <= $current; $i++)
-                                @if($i == $current)
-                                    <li class="active"><a href="#">{{ $i }}</a></li>
-                                @else
-                                    <li><a href="messages?current={{$i}}">{{$i}}</a></li>
-                                @endif
-
-                            @endfor
-                        @endif
-                            @else
-                                @for($i=1; $i <= $file_total_page; $i++)
-                                    @if($i == $current)
-                                        <li class="active"><a href="#">{{ $i }}</a></li>
-                                    @else
-                                        <li><a href="messages?current={{$i}}">{{$i}}</a></li>
-                                    @endif
-
-                                @endfor
-                            @endif
-                            @if($current != $file_total_page)
-                        <li><a href="messages?current={{$current + 1}}">下一页</a></li>
-                            @endif
-                        <li><a href="javascript:void(0)">共 {{ $file_total_page }} 页</a></li>
-                    </ul><!--/.pagination-->
+                        </div>
+                    </div><!--/.messages-item-->
+                    @include('page');
                 </div><!--/.col-md-8-->
-<div class="row">
-        <textarea id="txt" class="col-lg-8 col-md-8 col-sm-8">发表一下你的看法吧......</textarea>
-        <div id="div3">发表</div>
+                <div class="row">
+                    <textarea id="txt" class="col-lg-8 col-md-8 col-sm-8">发表一下你的看法吧......</textarea>
+                    <div id="div3">发表</div>
 
-</div>
+                </div>
             </div><!--/.row-->
         </div>
-        </div>
-    </section><!--/#blog-->
+    </div>
+</section><!--/#blog-->
 @include('footer');
 
 <!--侧边栏-->
 <script>
-    $(function(){
-        $(".side ul li").hover(function(){
-            $(this).find(".sidebox").stop().animate({"width":"124px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#ae1c1c"})
-        },function(){
-            $(this).find(".sidebox").stop().animate({"width":"54px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})
+    $(function () {
+        $(".side ul li").hover(function () {
+            $(this).find(".sidebox").stop().animate({"width": "124px"}, 200).css({
+                "opacity": "1",
+                "filter": "Alpha(opacity=100)",
+                "background": "#ae1c1c"
+            })
+        }, function () {
+            $(this).find(".sidebox").stop().animate({"width": "54px"}, 200).css({
+                "opacity": "0.8",
+                "filter": "Alpha(opacity=80)",
+                "background": "#000"
+            })
         });
         //pdf
-        $('a.media').media({width:$('.blog-content').width()});
+        $('a.media').media({width: $('.blog-content').width()});
     });
     //回到顶部函数
-    function goTop(){
-        $('html,body').animate({'scrollTop':0},300);
+    function goTop() {
+        $('html,body').animate({'scrollTop': 0}, 300);
     }
 </script>
 <!--侧边栏end-->
 <script>
-    $(function(){
+    $(function () {
         /*console.log($("#div1").parent().width)
-        $("#div1").width = $("#div1").parent().width;
-        console.log($("#div1").width)*/
+         $("#div1").width = $("#div1").parent().width;
+         console.log($("#div1").width)*/
 
-        $("#div3").click(function(){
+        $("#div3").click(function () {
             var val = $("#txt").val();
             @if(!empty($user))
-            $.post("/message",{content:val, user_id:{{ $user->student_id }}},function(result){
-            @else
-            $.post("/message",{content:val},function(result){
-            @endif
-                if (result.dec.code != 200000) {
-                    alert(result.dec.msg);
-                } else {
-                    alert('留言成功');
-                    window.location.href='/messages';
-                }
+            $.post("/message", {content: val, user_id:{{ $user->student_id }}}, function (result) {
+                @else
+                $.post("/message", {content: val}, function (result) {
+                    @endif
+                    if (result.dec.code != 200000) {
+                        alert(result.dec.msg);
+                    } else {
+                        alert('留言成功');
+                        window.location.href = '/messages';
+                    }
+                });
             });
-        });
 
-    })
+        })
 </script>
 </body>
 </html>

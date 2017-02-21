@@ -177,7 +177,7 @@
                                 @if(!is_file($file->path))
                                     <i style="color: red">文件已失效,请联系老师更新</i>
                                 @else
-                                <a href="{{ $file->path }}" class="text-success">点击下载</a>
+                                    <a href="{{ $file->path }}" class="text-success">点击下载</a>
                                 @endif
                             </td>
                         </tr>
@@ -187,52 +187,7 @@
             </table>
         </div>
 
-        <ul class="pagination pagination-lg">
-            @if($current != 1)
-                <li><a href="download?current={{$current - 1}}@if($object_id)&object_id={{ $object_id }}@endif">上一页</a>
-                </li>
-            @endif
-            @if($file_total_page > 10)
-                @if($current < 10)
-                    @for($i=1; $i <= 10; $i++)
-                        @if($i == $current)
-                            <li class="active"><a href="#">{{ $i }}</a></li>
-                        @else
-                            <li>
-                                <a href="download?current={{$i}}@if($object_id)&object_id={{ $object_id }}@endif">{{$i}}</a>
-                            </li>
-                        @endif
-
-                    @endfor
-                @else
-                    @for($i=$current - 9; $i <= $current; $i++)
-                        @if($i == $current)
-                            <li class="active"><a href="#">{{ $i }}</a></li>
-                        @else
-                            <li>
-                                <a href="download?current={{$i}}@if($object_id)&object_id={{ $object_id }}@endif">{{$i}}</a>
-                            </li>
-                        @endif
-
-                    @endfor
-                @endif
-            @else
-                @for($i=1; $i <= $file_total_page; $i++)
-                    @if($i == $current)
-                        <li class="active"><a href="#">{{ $i }}</a></li>
-                    @else
-                        <li><a href="download?current={{$i}}@if($object_id)&object_id={{ $object_id }}@endif">{{$i}}</a>
-                        </li>
-                    @endif
-
-                @endfor
-            @endif
-            @if($current != $file_total_page)
-                <li><a href="download?current={{$current + 1}}@if($object_id)&object_id={{ $object_id }}@endif">下一页</a>
-                </li>
-            @endif
-            <li><a href="javascript:void(0)">共 {{ $file_total_page }} 页</a></li>
-        </ul><!--/.pagination-->
+        @include('page');
     </div><!--/.col-md-8-->
 
 
