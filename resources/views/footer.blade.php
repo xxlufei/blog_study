@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/"
+                               title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>.
+                All Rights Reserved.
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
@@ -16,11 +18,29 @@
     </div>
 </footer><!--/#footer-->
 
-<script src="front/js/jquery.js"></script>
-<script src="front/js/bootstrap.min.js"></script>
-<script src="front/js/jquery.prettyPhoto.js"></script>
-<script src="front/js/jquery.isotope.min.js"></script>
-<script src="front/js/main.js"></script>
-<script src="front/js/wow.min.js"></script>
-<script src="front/js/video.min.js"></script>
-<script src="front/js/jquery.media.js"></script>
+
+<!--侧边栏-->
+<script>
+    $(function () {
+        $(".side ul li").hover(function () {
+            $(this).find(".sidebox").stop().animate({"width": "124px"}, 200).css({
+                "opacity": "1",
+                "filter": "Alpha(opacity=100)",
+                "background": "#ae1c1c"
+            })
+        }, function () {
+            $(this).find(".sidebox").stop().animate({"width": "54px"}, 200).css({
+                "opacity": "0.8",
+                "filter": "Alpha(opacity=80)",
+                "background": "#000"
+            })
+        });
+    });
+    //回到顶部函数
+    function goTop() {
+        $('html,body').animate({'scrollTop': 0}, 300);
+    }
+</script>
+<!--侧边栏end-->
+</body>
+</html>
