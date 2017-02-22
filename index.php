@@ -18,6 +18,8 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
+try{
+
 
 require __DIR__.'/bootstrap/autoload.php';
 
@@ -56,3 +58,6 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+}catch(\Exception $e) {
+    echo $e->getMessage();
+}

@@ -35,9 +35,7 @@ class IndexController extends Controller
         $count = DB::table('file')
             ->select('file_name')
             ->count();
-        if (!empty($file)) {
-            $data['file_list'] = $file;
-        }
+        $data['file_list'] = $file;
         //留言
         $messages = DB::table('message')->leftJoin('students', 'students.student_id', '=', 'message.user_id')
             ->select('content', 'name', 'create_at', 'avatar')
@@ -50,8 +48,8 @@ class IndexController extends Controller
                     $message->name = '匿名用户';
                 }
             }
-            $data['messages'] = $messages;
         }
+        $data['messages'] = $messages;
         //学科
         $objects = DB::table('object')->orderBy('object_id', 'asc')
             ->get();

@@ -10,7 +10,6 @@
             <div class="col-md-8">
                 <div class="blog-item">
                     <div class="row">
-                        @if(!empty($file_list))
                             @foreach( $file_list as $file)
                                 <div class="col-xs-12 col-sm-2 text-center">
                                     <div class="entry-meta">
@@ -49,7 +48,6 @@
                                     @endif
                                 </div>
                             @endforeach
-                        @endif
                     </div>
                 </div><!--/.blog-item-->
 
