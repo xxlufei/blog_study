@@ -103,7 +103,7 @@
 						alert(response.dec.msg);
 					}else {
 						alert('注册成功');
-						window.location.href='{{ $root_url }}';
+						window.location.href='';
 					}
 				}
 			})
