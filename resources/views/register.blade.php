@@ -84,7 +84,7 @@
 	var app = angular.module('myApp', []);
 	app.controller('validateCtrl', function($scope) {
 		$scope.return_login = function(){
-			window.location.href='/login';
+			window.location.href='login';
 		}
 		$scope.btn_click = function () {
 			$scope.formcheck = false;
@@ -103,7 +103,7 @@
 						alert(response.dec.msg);
 					}else {
 						alert('注册成功');
-						window.location.href='/';
+						window.location.href={{ $root_url }};
 					}
 				}
 			})

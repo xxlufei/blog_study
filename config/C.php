@@ -12,5 +12,6 @@ return array(
     'down_title' => '资料下载',
     'qq_service' => '1781020178',
     'domain' => 'http://www.study.com',
+    'root_url' => 'blog_study',
     'file_save_path' => 'uploads/file',//课件上传路径
 );

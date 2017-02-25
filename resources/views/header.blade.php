@@ -65,10 +65,10 @@
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/messages">留言板</a></li>
+                    <li><a href="">首页</a></li>
+                    <li><a href="messages">留言板</a></li>
                     <li><a href="http://wpa.qq.com/msgrd?v=3&uin={{ $qq_service }}&site=qq&menu=yes">在线交流</a></li>
-                    <li><a href="/download">资料下载</a></li>
+                    <li><a href="download">资料下载</a></li>
                     <li><a href="javascript:void(0)">　　　　　　　　　　　　　　　</a></li>
                     @if(!empty($user))
                         <li><a href="javascript:void(0)">欢迎{{ $user->name }}</a>|<a href="logout">注销</a></li>
