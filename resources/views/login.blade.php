@@ -42,7 +42,7 @@
 					<div class="form-group">
 
 						<hr />
-						<a href="/register" id="register_btn" class="">没有账号?点击注册</a>
+						<a href="register" id="register_btn" class="">没有账号?点击注册</a>
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-success pull-right" ng-click="login()"
