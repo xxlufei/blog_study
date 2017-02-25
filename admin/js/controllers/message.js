@@ -68,7 +68,7 @@ app.controller('message_modal_ctrl', ['$scope','$http', '$modal', '$log','$state
         });
     };
     $scope.get_messagelist = function (current,pagesize,params) {
-        $http.get('/admin/messagelist', {params:{current: current,pagesize:pagesize, params: params}}).then(function (response) {
+        $http.get('/blog_study/admin/messagelist', {params:{current: current,pagesize:pagesize, params: params}}).then(function (response) {
             $scope.message_list = response.data.data;
             $scope.bigTotalItems = response.data.total;
         });
@@ -100,7 +100,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
     $scope.confirm_ok = function() {
         $scope.confirm_button = true;
         $scope.authError = null;
-        $http.delete('/admin/message_delete', {params:{o_id: message}})
+        $http.delete('/blog_study/admin/message_delete', {params:{o_id: message}})
             .then(function(response) {
                 $modalInstance.dismiss('cancel');
                 if (response.data.dec.code!="200000" ) {
@@ -125,7 +125,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
         if (!$scope.message.message_id) {
                 //成功
                 $scope.authError = null;
-                $http.post('/admin/message_add', {content: $scope.message.content})
+                $http.post('/blog_study/admin/message_add', {content: $scope.message.content})
                     .then(function(response) {
                         if (response.data.dec.code!="200000" ) {
                             toastr.error(response.data.dec.msg);
@@ -138,7 +138,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
                         $scope.authError = '请正确填写信息';
                     });
         } else {
-            $http.post('/admin/message_update', {content: $scope.message.content, o_id: $scope.message.message_id})
+            $http.post('/blog_study/admin/message_update', {content: $scope.message.content, o_id: $scope.message.message_id})
                 .then(function(response) {
                     if (response.data.dec.code!="200000" ) {
                         toastr.error(response.data.dec.msg);

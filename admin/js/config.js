@@ -34,7 +34,7 @@ angular.module('app')
     authService.login = function (user) {
         toastr.success('正在登录中...');
         return $http
-            .post('/admin/login', {admin_user: user.admin_user, admin_password: md5.createHash(user.admin_password)})
+            .post('/blog_study/admin/login', {admin_user: user.admin_user, admin_password: md5.createHash(user.admin_password)})
             .then(function (response) {
                 if (response.data.dec.code != "200000") {
                     toastr.error(response.data.dec.msg);

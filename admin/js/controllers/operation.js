@@ -68,7 +68,7 @@ app.controller('object_modal_ctrl', ['$scope','$http', '$modal', '$log','$state'
         });
     };
     $scope.get_objectlist = function (current,pagesize,params) {
-        $http.get('/admin/objectlist', {params:{current: current,pagesize:pagesize, params: params}}).then(function (response) {
+        $http.get('/blog_study/admin/objectlist', {params:{current: current,pagesize:pagesize, params: params}}).then(function (response) {
             $scope.object_list = response.data.data;
             $scope.bigTotalItems = response.data.total;
         });
@@ -100,7 +100,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
     $scope.confirm_ok = function() {
         $scope.confirm_button = true;
         $scope.authError = null;
-        $http.delete('/admin/object_delete', {params:{o_id: object}})
+        $http.delete('/blog_study/admin/object_delete', {params:{o_id: object}})
             .then(function(response) {
                 $modalInstance.dismiss('cancel');
                 if (response.data.dec.code!="200000" ) {
@@ -122,7 +122,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
         if (!$scope.object.object_id) {
                 //成功
                 $scope.authError = null;
-                $http.post('/admin/object_add', {object_name: $scope.object.object_name})
+                $http.post('/blog_study/admin/object_add', {object_name: $scope.object.object_name})
                     .then(function(response) {
                         if (response.data.dec.code!="200000" ) {
                             toastr.error(response.data.dec.msg);
@@ -135,7 +135,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
                         $scope.authError = '请正确填写信息';
                     });
         } else {
-            $http.post('/admin/object_update', {object_name: $scope.object.object_name, o_id: $scope.object.object_id})
+            $http.post('/blog_study/admin/object_update', {object_name: $scope.object.object_name, o_id: $scope.object.object_id})
                 .then(function(response) {
                     if (response.data.dec.code!="200000" ) {
                         toastr.error(response.data.dec.msg);

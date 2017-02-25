@@ -68,7 +68,7 @@ app.controller('file_modal_ctrl', ['$scope','$http', '$modal', '$log','$state', 
         });
     };
     $scope.get_filelist = function (current,pagesize,params) {
-        $http.get('/admin/filelist', {params:{current: current,pagesize:pagesize, params: params}}).then(function (response) {
+        $http.get('/blog_study/admin/filelist', {params:{current: current,pagesize:pagesize, params: params}}).then(function (response) {
             $scope.file_list = response.data.data;
             $scope.bigTotalItems = response.data.total;
         });
@@ -97,7 +97,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
     $scope.confirm_ok = function() {
         $scope.confirm_button = true;
         $scope.authError = null;
-        $http.delete('/admin/file_delete', {params:{o_id: file}})
+        $http.delete('/blog_study/admin/file_delete', {params:{o_id: file}})
             .then(function(response) {
                 $modalInstance.dismiss('cancel');
                 if (response.data.dec.code!="200000" ) {
@@ -134,7 +134,7 @@ app.controller('OperationController', ['$scope', '$http','$modalInstance','$moda
         })
     };
     $scope.get_objectlist = function () {
-        $http.get('/admin/objectlistall', {params:{}}).then(function (response) {
+        $http.get('/blog_study/admin/objectlistall', {params:{}}).then(function (response) {
             $scope.object_list = response.data.data;
             $scope.selected = response.data.data[0].object_id;
         });
