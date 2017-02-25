@@ -67,7 +67,7 @@
                             <div class="col-sm-6">
                                 <ul class="blog_category">
                                     <li>
-                                        <a href="/download?object_id={{ $object->object_id }}">{{ $object->object_name }}
+                                        <a href="download?object_id={{ $object->object_id }}">{{ $object->object_name }}
                                             <span class="badge">{{ $object->num }}</span></a></li>
                                 </ul>
                             </div>
