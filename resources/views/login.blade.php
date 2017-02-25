@@ -75,7 +75,7 @@
 						alert(response.dec.msg);
 					}else {
 						alert('登录成功');
-						window.location.href='{{$domain.'/'.$root_url}}';
+						window.location.href='{{'http://work.lcode.cc/'.$root_url}}';
 					}
 				}
 			})
