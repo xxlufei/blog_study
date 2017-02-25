@@ -96,7 +96,7 @@
                                     @endif
                                 </div>
                             @endforeach
-                            <a class="btn btn-primary readmore" style="float:right" href="/messages">查看更多 <i
+                            <a class="btn btn-primary readmore" style="float:right" href="messages">查看更多 <i
                                         class="fa fa-angle-right"></i></a>
                         </div>
                     </div>

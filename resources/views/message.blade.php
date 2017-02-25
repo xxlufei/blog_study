@@ -49,15 +49,15 @@
         $("#div3").click(function () {
             var val = $("#txt").val();
             @if(!empty($user))
-            $.post("/message", {content: val, user_id:{{ $user->student_id }}}, function (result) {
+            $.post("message", {content: val, user_id:{{ $user->student_id }}}, function (result) {
                 @else
-                $.post("/message", {content: val}, function (result) {
+                $.post("message", {content: val}, function (result) {
                     @endif
                     if (result.dec.code != 200000) {
                         alert(result.dec.msg);
                     } else {
                         alert('留言成功');
-                        window.location.href = '/messages';
+                        window.location.href = 'messages';
                     }
                 });
             });
